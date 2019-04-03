@@ -62,3 +62,16 @@ server:
     port: 8085
 ```
 
+## Dockerize Spring Boot Application
+### Dockerfile
+```sh
+FROM openjdk:8-jdk-alpine
+EXPOSE 8086
+ADD target/Calculator-1.0.jar calculator.jar
+ENTRYPOINT ["java","-jar","calculator.jar"]
+```
+
+## Run Dockerized Spring Boot Application
+```sh
+> sudo docker run -p 8086:8085 jbarillasgarcia/calculator
+```
