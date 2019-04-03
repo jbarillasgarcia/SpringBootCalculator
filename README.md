@@ -55,7 +55,7 @@ Simple calculator microservices with Spring Boot.
 ## Configuration file
 Put your configuration file "application.yml" at /Calculator/src/main/resources
 
-You must specify at least the server port in which services are going to be available.  For example:
+You must specify at least the server port on which services are going to be available.  For example:
 
 ```sh
 server:
