@@ -63,6 +63,7 @@ server:
 ```
 
 ## Dockerize Spring Boot Application
+
 ### Dockerfile
 ```sh
 FROM openjdk:8-jdk-alpine
@@ -71,12 +72,12 @@ ADD target/Calculator-1.0.jar calculator.jar
 ENTRYPOINT ["java","-jar","calculator.jar"]
 ```
 
-## Build Docker
+### Build Docker
 ```sh
 > sudo docker build -t jbarillas/springbootcalculator
 ```
 
-## Run Dockerized Spring Boot Application
+### Run Dockerized Spring Boot Application
 ```sh
 > sudo docker run -p 8086:8085 jbarillas/springbootcalculator
 ```
