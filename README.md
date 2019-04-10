@@ -49,10 +49,10 @@ Simple calculator microservices with Spring Boot.
 - @Entity
 - @Table
 - @Id
-- @GeneratedValue(strategy = GenerationType.IDENTITY)
+- @GeneratedValue
 - @Column
 
-## Configuration file
+## Configuration File
 Put your configuration file "application.yml" at /Calculator/src/main/resources
 
 You must specify at least the server port on which services are going to be available.  For example:
@@ -60,13 +60,20 @@ You must specify at least the server port on which services are going to be avai
 ```sh
 server:
     port: 8085
+    
+spring:
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/databaseName
+        username: user
+        password: pass
 ```
 
 ## Dockerize Spring Boot Application
 
 ### Dockerfile
 ```sh
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jre-alpine
 EXPOSE 8086
 ADD target/Calculator-1.0.jar calculator.jar
 ENTRYPOINT ["java","-jar","calculator.jar"]
@@ -79,5 +86,5 @@ ENTRYPOINT ["java","-jar","calculator.jar"]
 
 ### Run Dockerized Spring Boot Application
 ```sh
-> sudo docker run -p 8086:8085 jbarillas/springbootcalculator
+> sudo docker run -p 2020:8086 jbarillas/springbootcalculator
 ```
