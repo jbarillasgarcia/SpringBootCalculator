@@ -81,10 +81,27 @@ ENTRYPOINT ["java","-jar","calculator.jar"]
 
 ### Build Docker
 ```sh
-> sudo docker build -t jbarillas/springbootcalculator
+> docker build -t jbarillas/springbootcalculator
 ```
 
 ### Run Dockerized Spring Boot Application
 ```sh
-> sudo docker run -p 2020:8086 jbarillas/springbootcalculator
+> docker run -p 2020:8086 jbarillas/springbootcalculator
+```
+
+## Run MySQL Docker Image
+```sh
+> docker pull mysql
+> docker run --name myinstance1 -e MYSQL_ROOT_PASSWORD=12345 -d -p 3306:3306 mysql
+> docker inspect myinstance1
+> docker-machine ip default
+  192.168.99.100
+> docker exec -it myinstance1 bash
+> mysql -uroot -p12345
+> create database mytest;
+> create user 'mytest'@'%' identified by '67890';
+> grant all on mytest.* to 'mytest'@'%';
+> exit
+> exit
+
 ```
