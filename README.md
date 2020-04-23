@@ -93,8 +93,9 @@ ENTRYPOINT ["java","-jar","calculator.jar"]
 ```sh
 > docker pull mysql
 > docker run --name myinstance1 -e MYSQL_ROOT_PASSWORD=12345 -d -p 3306:3306 mysql
-> docker inspect myinstance1
-> docker-machine ip default
+> docker inspect myinstance1 | ifconfig (Linux)
+> ip addr show | arp -a (Mac)
+> docker-machine ip default (Windows)
   192.168.99.100
 > docker exec -it myinstance1 bash
 > mysql -uroot -p12345
